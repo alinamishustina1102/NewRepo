@@ -18,8 +18,18 @@
         </StackPanel.Background>
         <StackPanel Background="{StaticResource BackgroundWindowResourse}">
             <TextBlock Margin="25,30,25,5" FontSize="20">
-            Сиситема внутреннего учета инвестиционной компании
+            Система внутреннего учета инвестиционной компании
             </TextBlock>
+            <TextBlock Margin="25,30,25,5" FontSize="16" > 
+            <Hyperlink NavigateUri="PageEmployee.xaml">Сотрудники</Hyperlink>
+            <Hyperlink NavigateUri="PageEmployee">Клиенты</Hyperlink>
+            <Hyperlink NavigateUri="PageEmployee">Договора</Hyperlink>
+            <Hyperlink NavigateUri="PageEmployee">Ценные бумаги</Hyperlink>
+            <Hyperlink NavigateUri="PageEmployee">Сделки</Hyperlink>
+            <Hyperlink NavigateUri="PageEmployee">Справка</Hyperlink>
+            </TextBlock>
+            <Button Margin="25, 15" Width="60" HorizontalAlignment="Left"
+                    Command="Close">Выход</Button>
         </StackPanel>
     </StackPanel>
 </Page>

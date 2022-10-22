@@ -1,0 +1,63 @@
+﻿<Page x:Class="WpfApp2.PageEmployee"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp2"
+      xmlns:command="clr-namespace:WpfApp2.Commands"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="PageEmployee">
+    <Page.CommandBindings>
+        <CommandBinding Command="{x:Static command:DataCommands.Edit}"                        CanExecute="EditCommandBinding_CanExecute"/>
+        <CommandBinding Command="{x:Static command:DataCommands.Delete}"/>
+        <CommandBinding Command="Undo" Executed="UndoCommandBinding_Executed"/>
+    </Page.CommandBindings>
+    <StackPanel Margin="3" Background="{StaticResource BackgroundWindowResourse}">
+        <Menu>
+            <MenuItem Header="Действие">
+                <MenuItem Header="Отменить" Command="Undo"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="Создать"></MenuItem>
+                <MenuItem Header="Редактировать" Command="command:DataCommands.Edit"></MenuItem>
+                <MenuItem Header="Сохранить" Command="Save"></MenuItem>
+                <MenuItem Header="Найти" Command="Find"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="Удалить" Command="command:DataCommands.Delete"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Отчет"></MenuItem>
+        </Menu>
+        <ToolBar Name="ToolBar1" Margin="3">
+            <Button Name="Undo" Command="Undo" ToolTip="Отменить редактирование/создание" Margin="5, 2, 5, 2">
+                <Image Source="Image/Undo.png"/>
+            </Button>
+            <Button Name="Add"  Command="New"  ToolTip="Добавление" Margin="5, 2, 5, 2">
+                <Image Source="Image/Add.png"/>
+            </Button>
+            <Button Name="Delete" ToolTip="Удалить" Margin="5, 2, 5, 2">
+                <Image Source="Image/Delete.png"/>
+            </Button>
+            <Button Name="Save" ToolTip="Сохранить" Margin="5, 2, 5, 2">
+                <Image Source="Image/Save.png"/>
+            </Button>
+            <Button Name="Edit" Command="command:DataCommands.Edit"  ToolTip="Редактировать" Margin="5,2,5,2">
+                <Image Source="Image/Edit.png"/>
+            </Button>
+            <Button Name="Find" ToolTip="Найти" Margin="5, 2, 5, 2">
+                <Image Source="Image/Find.png"/>
+            </Button>
+        </ToolBar>
+        <TextBlock Margin="5">Список сотрудников</TextBlock>
+        <DataGrid Name="DataGridEmployee">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия"/>
+                <DataGridTextColumn Header="Имя"/>
+                <DataGridTextColumn Header="Отчество"/>
+                <DataGridTextColumn Header="Должность"/>
+                <DataGridTextColumn Header="Дата рождения"/>
+                <DataGridTextColumn Header="Телефон"/>
+                <DataGridTextColumn Header="E-mail"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</Page>
